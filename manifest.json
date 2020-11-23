@@ -46,7 +46,7 @@
         "setting" : {
             "urlCheck" : true,
             "postcss" : true,
-             "checkSiteMap":true
+            "checkSiteMap":false
           
         }
     }
