@@ -137,12 +137,12 @@
   // 轮播图样式
 .home-swiper{
   height: 330rpx;
-  background-color: pink;
+  // background-color: pink;
   margin: 0 auto;
    .swiper-item { 
      width: 100%;
      height: 100%;
-     background-color: green;
+     // background-color: green;
      image{
        width: 100%;
        height: 100%;

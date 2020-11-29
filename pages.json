@@ -44,16 +44,17 @@
                     "path" : "goods_list/goods_list",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
+                    // "navigationBarTitleText": "",
+                   "onReachBottomDistance": 150,
+                   "enablePullDownRefresh": true,
+                   "backgroundColor": "#F8F8F8"
                 }
-                
                 }
                 ,{
                     "path" : "goods_search/goods_search",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    // "navigationBarTitleText": "",
                     "enablePullDownRefresh": false
                 }
                 
@@ -63,7 +64,7 @@
                     "path" : "goods_detail/goods_detail",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    // "navigationBarTitleText": "",
                     "enablePullDownRefresh": false
                 }
                 }
@@ -72,7 +73,7 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "黑马优购",
+		"navigationBarTitleText": "you优购",
 		"navigationBarBackgroundColor": "#c00000",
 		"backgroundColor": "#FFFFFF"
   
