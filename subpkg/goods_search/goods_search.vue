@@ -110,20 +110,7 @@
       goToCateList(item){
         console.log(item)
         uni.navigateTo({
-          url:`/subpkg/goods_list/goods_list?query=${item} = [
-    {
-        subject: 'math',
-        score: 10
-    },
-    {
-        subject: 'chinese',
-        score: 20
-    },
-    {
-        subject: 'english',
-        score: 30
-    }
-];}`
+          url:`/subpkg/goods_list/goods_list?query=${item}`
         })
       }
     }
