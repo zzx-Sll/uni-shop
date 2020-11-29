@@ -39,9 +39,10 @@
     "subPackages":[
       {
         "root":"subpkg",
-        "pages":[{
-                    "path" : "goods_detial/goods_detial",
-                    "style" :                  
+        "pages":[
+                {
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
                 {
                     "navigationBarTitleText": "",
                     "enablePullDownRefresh": false
@@ -49,7 +50,17 @@
                 
                 }
                 ,{
-                    "path" : "goods_list/goods_list",
+                    "path" : "goods_search/goods_search",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                
+                ,{
+                    "path" : "goods_detail/goods_detail",
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "",

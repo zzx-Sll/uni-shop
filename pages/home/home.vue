@@ -1,5 +1,8 @@
 <template class="home-container">
 	<view>
+    <!-- 搜索组件 -->
+    <my-search></my-search>
+    <!-- 搜索组件 -->
 	   <!-- 首页轮播图区域 -->
      <swiper :indicator-dots="true" :autoplay="true" :interval="2000" :duration="1000" class="home-swiper" indicator-active-color="#c00000">
        <swiper-item v-for="(item) in swiperList" :key="item.goods_id">
@@ -126,8 +129,6 @@
         })
         // console.log(res)
       }
-     
-   
     }
 	}
 </script>
@@ -227,4 +228,10 @@
     }
      }
    // 首页楼层区域样式结束
+   .my-search{
+     //实现吸顶效果
+     position: sticky;
+     top: 0;
+     z-index: 999;
+   }
 </style>

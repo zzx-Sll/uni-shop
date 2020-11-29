@@ -1,5 +1,6 @@
 <template>
 	<view>
+    <my-search></my-search>
   <!-- 滚动区域 -->
   <view class="scroll">
     <!-- 左侧滚动区域 -->
@@ -41,6 +42,8 @@
 </template>
 
 <script>
+  // 导入search搜索组件
+  // import MySearch from '../../components/search/search'
 	export default {
 		data() {
 			return {
@@ -63,7 +66,7 @@
          success:(res)=>{
            // console.log(res)
            //将设备的可用高度存储到本地
-           this.windowHeight=res.windowHeight
+           this.windowHeight=res.windowHeight-50
          },
       }),
       //调取获取商品分类列表的函数
