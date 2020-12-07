@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App'
 //导入$http
 import {$http} from '@escook/request-miniprogram'
+//导入store
+import store from '@/store/store.js'
 //设置请求根路径
 $http.baseUrl='http://www.uinav.com'
 //将$http挂载到uni顶级对象上
@@ -29,6 +31,7 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-	...App
+	...App,
+  store
 })
 app.$mount()

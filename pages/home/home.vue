@@ -60,7 +60,11 @@
 </template>
 
 <script>
+ // 导入mixins
+  import tabbadge from '@/mixins/tabbar-badge'
 	export default {
+  // 设置mixins节点
+    mixins:[tabbadge],
 		data() {
 			return {
 				//定义轮播图列表

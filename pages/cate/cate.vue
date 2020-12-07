@@ -42,9 +42,11 @@
 </template>
 
 <script>
-  // 导入search搜索组件
-  // import MySearch from '../../components/search/search'
+// 导入mixins
+import tabbadge from '@/mixins/tabbar-badge'
 	export default {
+    //设置mixins节点
+    mixins:[tabbadge],
 		data() {
 			return {
         //当前设备可用的高度

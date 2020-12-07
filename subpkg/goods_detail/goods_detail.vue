@@ -35,7 +35,7 @@
   
   <!-- 下方快递 -->
   <text class="yf">
-    快递：免运费
+    快递：免运费 --{{cart.length}}
   </text>
   <!-- 下方快递 -->
  </view>
@@ -50,10 +50,14 @@
 <uni-goods-nav :fill="true"  :options="options" :buttonGroup="buttonGroup"  @click="onClick" @buttonClick="buttonClick" />
 <!-- 商品导航组件 -->
 	</view>
+  </view>
 </template>
 
 <script>
+  //导入cart.js模块 
+ import { mapState,mapMutations,mapGetters } from 'vuex'
 	export default {
+   
 		data() {
 			return {
 				// 商品的id
@@ -70,7 +74,7 @@
                 }, {
                     icon: 'cart',
                     text: '购物车',
-                    info: 2
+                    info: 0
                 }],
                 buttonGroup: [{
                   text: '加入购物车',
@@ -86,6 +90,8 @@
 			};
 		},
    methods:{
+     //映射mapMutations到当前页面
+     ...mapMutations('m_cart',['addCart','saveCart']),
      //定义获取当前商品详情的函数
     async getGoodsDetail(){
        const {data:res} = await uni.$http.get('/api/public/v1/goods/detail',{goods_id:this.goods_id})
@@ -111,31 +117,75 @@
      },
      //左侧点击事件
      onClick(e){
-        console.log(e)
+        // console.log(e)
         // 如果用户点击了购物车,则跳转到购物车页面
         if(e.content.text==='购物车'){
-          console.log('触发了购物车按钮')
+          // console.log('触发了购物车按钮')
          uni.switchTab({
            url:'/pages/cart/cart'
          })
       }
    },
-    onLoad(options) {
-      console.log(options)
-      //将当前商品id存储下拉
-      this.goods_id=options.goods_id
-      //调用获取商品详情的函数
-      this.getGoodsDetail()
-     
-    }
+   //商品导航栏右侧的点击事件
+   buttonClick(e){
+     // console.log(e)
+     if(e.content.text==='加入购物车'){
+      //将数据放进cart数组
+       this.addCart({
+         goods_id:this.goodsDetail.goods_id,
+         goods_name:this.goodsDetail.goods_name,
+         goods_price:this.goodsDetail.goods_price,
+         goods_count:1,
+         goods_state: true,     
+         goods_small_log:this.goodsDetail.goods_small_logo,
+       })
+     }
+    
+   }
+  
    
-	}
+	},
+  //计算属性
+   computed: {
+     
+    ...mapState('m_cart',['cart']),
+    // total:购物车的数量
+    ...mapGetters('m_cart',['total'])
+   },
+   watch:{
+     // total(val){
+     //  const count= this.options.find(item=>{
+     //       if(item.text==='购物车'){
+     //         return  item.info=val
+     //       }
+     //   })
+     //   // console.log('count值为：',count)
+     // }
+     total:{
+       handler(val){
+         const count= this.options.find(item=>{
+               if(item.text==='购物车'){
+                 return  item.info=val
+               }
+           })
+       },
+       immediate:true
+     }
+   },
+   onLoad(options) {
+     console.log(options)
+     //将当前商品id存储下拉
+     this.goods_id=options.goods_id
+     //调用获取商品详情的函数
+     this.getGoodsDetail()
+    
+   }
   }
 </script>
 
 <style lang="scss">
 .detial-container{
-  padding-bottom: 50px;
+  padding-bottom: 50px !important;
   swiper{
   height: 600rpx;
     // background-color: pink;
